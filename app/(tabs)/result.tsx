@@ -354,7 +354,7 @@ const Result = () => {
           </View>
           {/* immediate action */}
           <View className="w-full mt-10 flex flex-col gap-5">
-            <Text className="font-semibold uppercase text-lg text-gray-400 mb-1">
+            <Text className="font-semibold capitalize text-lg text-gray-400 mb-1">
               {language === "english" ? "Immediate Action" : "Gwaji na Gaba"}
             </Text>
             {currentResult?.treatmentPlan?.immediateActions.map((a, index) => (
@@ -367,7 +367,7 @@ const Result = () => {
           </View>
           {/* Organic Remedies */}
           <View className="w-full mt-20 flex flex-col gap-5">
-            <Text className="font-semibold uppercase text-lg text-gray-400 mb-3">
+            <Text className="font-semibold capitalize text-lg text-gray-400 mb-3">
               {language === "english" ? "Organic Remedies" : "Matakin Gwaji na Halitta"}
             </Text>
             {currentResult?.treatmentPlan?.organicRemedies.map((o, index) => (
@@ -383,7 +383,7 @@ const Result = () => {
           </View>
           {/* Chemical Controls */}
           <View className="w-full mt-12 flex flex-col gap-5">
-            <Text className="font-semibold uppercase text-lg text-gray-400 mb-1">
+            <Text className="font-semibold capitalize text-lg text-gray-400 mb-1">
               {language === "english" ? "Chemical Controls" : "Kula da Sinadarai"}
             </Text>
             {currentResult?.treatmentPlan?.chemicalControls.map((o, index) => (

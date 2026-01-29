@@ -195,7 +195,7 @@ const Signup = () => {
               >
                 <Picker.Item style={{ color: "gray" }} label={language === "english" ? "Select your state" : "Zaɓi jihar ku"} value="" />
                 {NIGERIA_STATES.map((st) => (
-                  <Picker.Item  style={{ color: "gray" }} key={st} label={st} value={st} />
+                  <Picker.Item  style={{ color: "rgb(0,0,0)" }} key={st} label={st} value={st} />
                 ))}
               </Picker>
             </View>

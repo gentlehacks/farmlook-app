@@ -6,7 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 interface User {
   name: string;
@@ -115,45 +115,6 @@ const Settings = () => {
             </View>
 
             <Ionicons name="chevron-forward" size={20} color="#4B5563" />
-            {showLanguageOptions && (
-              <View
-                className="absolute top-[-80px] right-0 p-2 w-[150px] rounded-xl bg-white gap-4 border border-gray-300 flex flex-col items-center"
-                style={{ zIndex: 1000 }}
-              >
-                <TouchableOpacity
-                  onPress={() => setLanguage("english")}
-                  className="px-5 py-2 w-full rounded-md bg-gray-100 flex flex-row items-center"
-                >
-                  {language === "english" && (
-                    <Ionicons
-                      name="checkmark"
-                      size={15}
-                      color="green"
-                      className="mr-1"
-                    />
-                  )}
-                  <Text className="font-medium text-md text-gray-400">
-                    English
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => setLanguage("hausa")}
-                  className="px-5 py-2 w-full rounded-md bg-gray-100 flex flex-row items-center"
-                >
-                  {language === "hausa" && (
-                    <Ionicons
-                      name="checkmark"
-                      size={15}
-                      color="green"
-                      className="mr-1"
-                    />
-                  )}
-                  <Text className="font-medium text-md text-gray-400">
-                    Hausa
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            )}
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => router.push("/(tabs)/about")}
@@ -196,6 +157,57 @@ const Settings = () => {
           </Text>
         </TouchableOpacity>
       </ScrollView>
+      {/* Language Selection Modal */}
+      <Modal
+        visible={showLanguageOptions}
+        animationType="fade"
+        transparent={true}
+      >
+        <View
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+          className="absolute h-screen right-0 p-2 w-full flex items-center justify-center rounded-xl 
+          style={{ zIndex: 1000 }}"
+        >
+          <View className="w-[90%] px-4 py-6 flex flex-col bg-white rounded-xl border border-gray-300 flex flex-col items-center justify-center"> 
+            <Text className="text-xl font-semibold text-green-700 mb-4">
+              {language === "english"
+                ? "Select App Language"
+                : language === "hausa" && "Zaɓi Harshen App"}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                setLanguage("english");
+                setShowLanguageOptions(false);
+              }}
+              className={`px-5 py-3 w-full rounded-md bg-gray-100 flex flex-row items-center  mb-2
+                ${language === "english" ? "border border-b-2 border-green-700" : ""}
+              `}
+            >
+              <Text className={`font-medium text-lg text-gray-400
+                ${language === "english" ? "text-gray-700" : ""}
+              `}>
+                English
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setLanguage("hausa");
+                setShowLanguageOptions(false);
+              }}
+              className={`px-5 py-3 w-full rounded-md bg-gray-100 flex flex-row items-center  mb-2
+                ${language === "hausa" ? "border border-b-2 border-green-700" : ""}
+              `}
+            >
+              <Text className={`font-medium text-lg text-gray-400
+                ${language === "hausa" ? "text-gray-700" : ""}
+              `}>
+                Hausa
+              </Text>
+            </TouchableOpacity>
+          </View>
+          
+        </View>
+      </Modal>
     </View>
   );
 };

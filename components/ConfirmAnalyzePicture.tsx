@@ -93,6 +93,7 @@ const ConfirmAnalyzePicture = ({
       <View className=" w-full flex-1 h-[550px] bg-gray-100 rounded-t-3xl items-center justify-center px-8 relative bottom-0 left-0">
         <TouchableOpacity
           onPress={() => setImageUri(null)}
+          disabled={isLoading}
           className="absolute top-8 left-16 z-10"
         >
           <Ionicons

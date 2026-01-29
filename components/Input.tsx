@@ -25,7 +25,7 @@ const Input = ({ label, value, setValue, placeholder, type, icon }: InputProps) 
           placeholder={placeholder}
           placeholderTextColor='gray'
           secureTextEntry={type === 'password'}
-          className={`text-lg border border-gray-300 px-4 py-4 pb-5 mb-2 pl-12 rounded-xl `}
+          className={`text-lg border text-gray-700 border-gray-300 px-4 py-4 pb-5 mb-2 pl-12 rounded-xl `}
         />  
       </View>
     </View>
